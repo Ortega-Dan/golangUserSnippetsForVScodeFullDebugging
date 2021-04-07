@@ -1,0 +1,70 @@
+{
+	// Place your snippets for jsonc here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"golangCLIlaunch": {
+		"prefix": "go-terminal-launch",
+		"body": [
+			"//Read console input (STDIN) by importing: github.com/Ortega-Dan/golang-stdin/stdin",
+			"{",
+			"\t\"version\": \"0.2.0\",",
+			"\t\"configurations\": [",
+			"\t\t{",
+			"\t\t\t\"name\": \"Connect to server\",",
+			"\t\t\t\"type\": \"go\",",
+			"\t\t\t\"request\": \"attach\",",
+			"\t\t\t\"preLaunchTask\": \"delve\",",
+			"\t\t\t\"mode\": \"remote\",",
+			"\t\t\t\"remotePath\": \"\\${workspaceFolder\\}\",",
+			"\t\t\t\"port\": 23456,",
+			"\t\t\t\"host\": \"127.0.0.1\",",
+			"\t\t\t\"cwd\": \"\\${workspaceFolder\\}\"",
+			"\t\t}",
+			"\t]",
+			"}"
+		],
+		"description": "Golang Terminal Launcher"
+	},
+	"golangCLItasks": {
+		"prefix": "go-terminal-tasks",
+		"body": [
+			"{",
+			"\t\"version\": \"2.0.0\",",
+			"\t\"tasks\": [",
+			"\t\t{",
+			"\t\t\t\"label\": \"delve\",",
+			"\t\t\t\"type\": \"shell\",",
+			"\t\t\t\"command\": \"dlv debug --headless --listen=:23456 --api-version=2 \\\"\\${workspaceFolder\\}\\\"\",",
+			"\t\t\t\"isBackground\": true,",
+			"\t\t\t\"presentation\": {",
+			"\t\t\t\t\"focus\": true,",
+			"\t\t\t\t\"panel\": \"dedicated\",",
+			"\t\t\t\t\"clear\": true",
+			"\t\t\t},",
+			"\t\t\t\"group\": {",
+			"\t\t\t\t\"kind\": \"build\",",
+			"\t\t\t\t\"isDefault\": true",
+			"\t\t\t},",
+			"\t\t\t\"problemMatcher\": {",
+			"\t\t\t\t\"pattern\": {",
+			"\t\t\t\t\t\"regexp\": \"\"",
+			"\t\t\t\t},",
+			"\t\t\t\t\"background\": {",
+			"\t\t\t\t\t\"activeOnStart\": true,",
+			"\t\t\t\t\t\"beginsPattern\": {",
+			"\t\t\t\t\t\t\"regexp\": \".*\"",
+			"\t\t\t\t\t},",
+			"\t\t\t\t\t\"endsPattern\": {",
+			"\t\t\t\t\t\t\"regexp\": \".*server listening.*\"",
+			"\t\t\t\t\t}",
+			"\t\t\t\t}",
+			"\t\t\t}",
+			"\t\t}",
+			"\t]",
+			"}"
+		],
+		"description": "Golang Terminal Tasks"
+	}
+}
