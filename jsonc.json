@@ -70,14 +70,19 @@
 		],
 		"description": "Golang Terminal Tasks"
 	},
-	"golangTerminateOnSave": {
-		"prefix": "go-terminate-on-save_settings.json",
-		"body": "// DISCLAIMER: This command only works on Linux for now (possibly on mac)\n// For this to work install the following vscode extension: wk-j.save-and-run\n// And place this config on .vscode/settings.json\n{\"saveAndRun\": {\"commands\": [{\"match\": \".*\",\"cmd\": \"kill $(ps aux|grep dlv|awk '{print \\$2}'|head -n 1) && kill $(ps aux|grep ELECTRON_RUN_AS_NODE|grep golang|awk '{print \\$2}'|head -n 1)\",\"silent\": true}]}}",
-		"description": "Golang Terminate Debugging Session on Code Saving"
+	"golangTerminateOnSaveBasic": {
+		"prefix": "go-save-terminate-basic_settings.json",
+		"body": "// DISCLAIMER: This command only works on Linux for now (possibly on mac)\n// For this to work install the following vscode extension: wk-j.save-and-run\n// And place this config on .vscode/settings.json\n{\"saveAndRun\": {\"commands\": [{\"match\": \".*\",\n// WARNING: BASIC config. Works with both CLI and BasicImproved launchers, but doesn't differentiate between more than one vscode golang debugging workspaces (saving one might terminate the other)\n// For best functionality use advanced save-terminator with CLI launch.json and tasks.json\n\"cmd\": \"kill $(ps aux|grep dlv|awk '{print \\$2}'|head -n 1) && kill $(ps aux|grep ELECTRON_RUN_AS_NODE|grep golang|awk '{print \\$2}'|head -n 1) && kill $(ps aux|grep __debug_bin|awk '{print \\$2}'|head -n 1)\",\"silent\": true}]}}",
+		"description": "(Basic) Golang Terminate Debugging Session on Code Saving"
 	},
 	"golangBasicLauncher": {
 		"prefix": "go-improved-basic-launcher_launch.json",
 		"body": "{\"version\": \"0.2.0\",\"configurations\": [{\"name\": \"Launch Package\",\"type\": \"go\",\"request\": \"launch\",\"mode\": \"auto\",\"program\": \"\\${workspaceFolder}\",\"internalConsoleOptions\": \"openOnSessionStart\"}]}",
 		"description": "Golang Improved Basic Launcher"
+	},
+	"golangTerminateOnSaveAdvanced": {
+		"prefix": "go-save-terminate-advanced_settings.json",
+		"body": "// DISCLAIMER: This command only works on Linux for now (possibly on mac)\n// For this to work install the following vscode extension: wk-j.save-and-run\n// And place this config on .vscode/settings.json\n{\"saveAndRun\": {\"commands\": [{\"match\": \".*\",\n// ADVANCED config ONLY works with CLI configs for launch.json and tasks.json\n\"cmd\": \"tempo=$(ps auxe|grep dlv|grep \\\"\\${workspaceFolder}\\\"|head -n 1) && kill $(echo \\$tempo |awk '{print \\$2}') && toSearch=$(echo \\$tempo |awk -F GIO_LAUNCHED_DESKTOP_FILE_PID= '{print \\$2}'|awk '{print \\$1}') && kill $(ps auxe|grep env.ELECTRON_RUN_AS_NODE|grep golang|grep danort|grep \\$toSearch|awk '{print \\$2}'|head -n 1)\",\"silent\": true}]}}",
+		"description": "(Advanced [GolangCLI Only]) Golang Terminate Debugging Session on Code Saving"
 	}
 }
