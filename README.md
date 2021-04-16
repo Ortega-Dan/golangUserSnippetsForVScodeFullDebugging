@@ -19,4 +19,10 @@ E.g. To auto populate the config for the settings.json file type "gosett", then 
 ![](readmeImages/step3.png)
 
 **Note:** Two options are presented for launch.json.\
-One for an improved basic launcher that works with the "Debug Console", and another for Golang code that has CLI functionality (which requires the tasks.json file with the corresponding snippet and works with the integrated terminal).
+* One for an improved basic launcher that works with the "Debug Console".
+* And another for Golang code that has CLI functionality (which requires the tasks.json file with the corresponding snippet and works with the integrated terminal).
+
+
+**Another important Note:** Two options are presented for settings.json.\
+* Basic save-terminate: works for both ImprovedBasic and CLI launchers, but doesn't differentiate between more than one vscode Golang debugging sessions
+* Advanced save-terminate: differentiates between workspace sessions, but only works with Golang CLI launch.json and tasks.json
