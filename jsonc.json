@@ -70,9 +70,9 @@
 		"description": "Golang Terminal Tasks"
 	},
 	"golangTerminateOnSave": {
-		"prefix": "go-terminate-on-save-for-basic-debug_settings.json",
-		"body": "// For this to work install the following vscode extension: wk-j.save-and-run\n// And place this config on .vscode/settings.json\n{\"saveAndRun\": {\"commands\": [{\"match\": \".*\",\"cmd\": \"toTerminate=$(ps aux|grep dlv|awk '{print \\$2}'|head -n 1) && kill \\$toTerminate\",\"silent\": true}]}}",
-		"description": "Golang Terminate Debugging Session on Code Saving (For Basic Launcher)"
+		"prefix": "go-terminate-on-save_settings.json",
+		"body": "// DISCLAIMER: This command only works on Linux for now (possibly on mac)\n// For this to work install the following vscode extension: wk-j.save-and-run\n// And place this config on .vscode/settings.json\n{\"saveAndRun\": {\"commands\": [{\"match\": \".*\",\"cmd\": \"kill $(ps aux|grep dlv|awk '{print \\$2}'|head -n 1) && kill $(ps aux|grep ELECTRON_RUN_AS_NODE|grep golang|awk '{print \\$2}'|head -n 1)\",\"silent\": true}]}}",
+		"description": "Golang Terminate Debugging Session on Code Saving"
 	},
 	"golangBasicLauncher": {
 		"prefix": "go-improved-basic-launcher_launch.json",
