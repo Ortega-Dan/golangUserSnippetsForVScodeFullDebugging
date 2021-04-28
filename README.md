@@ -10,7 +10,7 @@ then ...\
 Then create the following files:\
 .vscode/launch.json\
 .vscode/tasks.json (Recommended [but still Optional] required if willing to run Golang code that has CLI functionality)\
-.vscode/settings.json (Optional required if willing to stop debugging automatically on save)
+.vscode/settings.json (Optional required if willing to stop debugging automatically on save on Linux)
 
 
 On each of those files type "go" followed by part of the name of the file (to filter the options).\
