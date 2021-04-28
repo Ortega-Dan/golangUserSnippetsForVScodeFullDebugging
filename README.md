@@ -9,7 +9,7 @@ then ...\
 
 Then create the following files:\
 .vscode/launch.json\
-.vscode/tasks.json (Recommended (but still Optional) required if willing to run Golang code that has CLI functionality)\
+.vscode/tasks.json (Recommended [but still Optional] required if willing to run Golang code that has CLI functionality)\
 .vscode/settings.json (Optional required if willing to stop debugging automatically on save)
 
 
