@@ -9,7 +9,8 @@
 		"body": [
 			"//Read console input (STDIN) by importing: github.com/Ortega-Dan/golang-stdin/stdin",
 			"//Catch panics by importing: github.com/Ortega-Dan/golang-panic-catcher/gpanic",
-			"//Build most possible stripped binaries with: go build -ldflags \"-s -w\" -gcflags=-trimpath=x/y",
+			"//Build most possible stripped and cgo static binaries with:",
+			"//go build -ldflags \"-s -w -extldflags=-static\" -gcflags=-trimpath=x/y",
 			"{",
 			"\t\"version\": \"0.2.0\",",
 			"\t\"configurations\": [",
